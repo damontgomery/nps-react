@@ -4,11 +4,11 @@ import './ParkCard.css';
 class ParkCard extends Component {
   render() {
     return (
-      <card className="park-card">
-        <name>{this.props.name}</name>
-        <description>{this.props.description}</description>
+      <div className="park-card">
+        <div className="name">{this.props.name}</div>
+        <div className="description">{this.props.description}</div>
         <a href={this.props.url} className="more-information">More information</a>
-      </card>
+      </div>
     );
   }
 }

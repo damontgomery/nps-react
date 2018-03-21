@@ -4,7 +4,10 @@
   "private": true,
   "repository": "git@github.com:damontgomery/nps-react.git",
   "dependencies": {
+    "apollo-boost": "^0.1.3",
+    "graphql": "^0.13.2",
     "react": "^16.2.0",
+    "react-apollo": "^2.0.4",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1"
   },

@@ -1,18 +1,18 @@
-card.park-card {
+.park-card {
   display:block;
   border: 1px solid gray;
   padding: 1.62em;
   margin: 1.62em;
 }
 
-card.park-card name {
+.park-card .name {
   display:block;
 }
 
-card.park-card description {
+.park-card .description {
   display:block;
 }
 
-card.park-card a.more-information {
+.park-card a.more-information {
   display:block;
 }
