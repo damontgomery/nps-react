@@ -4,6 +4,7 @@ import './App.css';
 
 // Components
 import ParkList from './Components/ParkList';
+import StateFilter from './Components/StateFilter';
 
 // GraphQL Client
 import { ApolloProvider } from 'react-apollo';
@@ -24,6 +25,12 @@ class App extends Component {
     this.state = {
       stateFilter: "UT"
     };
+  }
+
+  handleStateFilterChange (state) {
+    this.setState({
+      stateFilter: state
+    });
   }
 
   render() {
@@ -75,6 +82,10 @@ class App extends Component {
           <header className="App-header">
             <h1 className="App-title">National Park Service API React App</h1>
           </header>
+          <StateFilter
+            state={this.state.stateFilter}
+            onChange={(state) => this.handleStateFilterChange(state)}
+          />
           <ParkListWithData/>
         </div>
       </ApolloProvider>
