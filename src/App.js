@@ -1,7 +1,11 @@
+// React
 import React, { Component } from 'react';
 import './App.css';
-import ParkCard from './Components/ParkCard';
 
+// Components
+import ParkList from './Components/ParkList';
+
+// GraphQL Client
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
@@ -19,45 +23,33 @@ class App extends Component {
     const parksQuery = gql`
       query {
         parks(stateCode: PA) {
-          parkCode,
-          name,
-          description,
-          designation,
-          url,
-          directionsUrl,
-          weatherInfo,
+          parkCode
+          name
+          description
+          designation
+          url
+          directionsUrl
+          weatherInfo
           images {
             url
           }
           coordinates {
-            lat,
+            lat
             long
           }
         }
        }
     `;
 
-    const ParkCards = graphql(parksQuery)(({ data: {loading, error, parks }}) => {
+    // Create a higher order component by combining GraphQL with the React component.
+    const ParkListWithData = graphql(parksQuery)(({ data: {loading, error, parks }}) => {
        if (loading) {
          return <p>Loading ...</p>;
        }
        if (error) {
          return <p>{error.message}</p>;
        }
-       return parks.map((park) => {
-         return (
-           <ParkCard key={park.parkCode}
-             name = {park.name}
-             description = {park.description}
-             designation = {park.designation}
-             url = {park.url}
-             directionsUrl = {park.directionsUrl}
-             weatherInfo = {park.weatherInfo}
-             images = {park.images}
-             coordinates = {park.coordinates}
-           />
-         );
-       });
+       return <ParkList parks={parks}/>;
      });
 
     return (
@@ -66,10 +58,7 @@ class App extends Component {
           <header className="App-header">
             <h1 className="App-title">National Park Service API React App</h1>
           </header>
-          <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
-          </p>
-          <ParkCards/>
+          <ParkListWithData/>
         </div>
       </ApolloProvider>
     );
