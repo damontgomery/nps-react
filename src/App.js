@@ -38,6 +38,7 @@ class App extends Component {
       query parksQuery($stateFilter: State!){
         parks(stateCode: $stateFilter) {
           parkCode
+          fullName
           name
           description
           designation

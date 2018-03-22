@@ -1,0 +1,29 @@
+.park-cards {
+  display: grid;
+  grid-gap: 1.62rem;
+  grid-template-columns:
+    [col1] auto
+    [col2] auto
+    [col3] auto
+  ;
+  grid-template-rows: [row1] auto;
+  background-color: #fff;
+  color: #444;
+}
+
+@media (min-width: 640px) and (max-width: 1280px) {
+  .park-cards {
+    grid-template-columns:
+      [col1] auto
+      [col2] auto
+    ;
+  }
+}
+
+@media (max-width: 640px) {
+  .park-cards {
+    grid-template-columns:
+      [col1] auto
+    ;
+  }
+}

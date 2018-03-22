@@ -1,18 +1,22 @@
 .park-card {
   display:block;
-  border: 1px solid gray;
   padding: 1.62em;
-  margin: 1.62em;
+  border: 1px solid gray;
+  border-radius: 2px;
+  line-height: 1.62;
 }
 
 .park-card .name {
   display:block;
+  font-size: 1.38rem;
+
 }
 
 .park-card .description {
   display:block;
 }
 
-.park-card a.more-information {
+.park-card a {
   display:block;
+  text-decoration: none;
 }

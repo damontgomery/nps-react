@@ -13,9 +13,10 @@ class ParkList extends Component {
   }
 
   render() {
-    return this.state.parks.map((park) => {
+    let ParkCards = this.state.parks.map((park) => {
       return (
         <ParkCard key={park.parkCode}
+          fullName = {park.fullName}
           name = {park.name}
           description = {park.description}
           designation = {park.designation}
@@ -27,6 +28,12 @@ class ParkList extends Component {
         />
       );
     });
+
+    return (
+      <div className="park-cards">
+        {ParkCards}
+      </div>
+    );
   }
 }
 

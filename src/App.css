@@ -1,1 +1,11 @@
-
+.App {
+  display: grid;
+  margin: 1.62em;
+  grid-gap: 1.62rem;
+  grid-template-columns:
+    [col1] auto
+  ;
+  grid-template-rows: [header] auto [content] auto [footer] auto;
+  background-color: #fff;
+  color: #444;
+}
