@@ -19,10 +19,17 @@ const client = new ApolloClient({
 });
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      stateFilter: "UT"
+    };
+  }
+
   render() {
     const parksQuery = gql`
-      query {
-        parks(stateCode: PA) {
+      query parksQuery($stateFilter: State!){
+        parks(stateCode: $stateFilter) {
           parkCode
           name
           description
@@ -42,7 +49,17 @@ class App extends Component {
     `;
 
     // Create a higher order component by combining GraphQL with the React component.
-    const ParkListWithData = graphql(parksQuery)(({ data: {loading, error, parks }}) => {
+    const ParkListWithData = graphql(
+      parksQuery,
+      {
+        options: {
+          variables: {
+            // parkCodeFilter: "arch",
+            stateFilter: this.state.stateFilter
+          }
+        },
+      }
+    )(({ data: {loading, error, parks }}) => {
        if (loading) {
          return <p>Loading ...</p>;
        }
