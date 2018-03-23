@@ -78,8 +78,9 @@ class StateFilter extends Component {
 
     return (
       <select name="state-filter" defaultValue={this.state.state} onChange={(event) => {
-        this.setState({state: event.target.value});
-        return this.props.onChange(this.state.state);
+        let selectedState = event.target.value;
+        this.setState({state: selectedState});
+        return this.props.onChange(selectedState);
       }}>
         {options}
       </select>
