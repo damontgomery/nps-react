@@ -40,15 +40,3 @@
 .app > .bookmark-list {
   grid-area: bookmarks;
 }
-
-.bookmark-list > .title {
-  font-size: 1.62rem;
-}
-
-.bookmark-list > .park-list {
-  display:block;
-}
-
-.bookmark-list > .park-list > .park-card {
-  margin: 1.62rem 0;
-}

@@ -7,6 +7,9 @@ import ParkFinder from './Components/ParkFinder';
 import ParkDetails from './Components/ParkDetails';
 import ParkList from './Components/ParkList';
 
+// Import BookmarkList since it is displayed slightly different than a park list.
+import './Components/BookmarkList.css';
+
 // GraphQL Client
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
