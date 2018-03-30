@@ -5,7 +5,7 @@ import './App.css';
 // Components
 import ParkFinder from './Components/ParkFinder';
 import ParkDetails from './Components/ParkDetails';
-import BookmarkList from './Components/BookmarkList';
+import ParkList from './Components/ParkList';
 
 // GraphQL Client
 import { ApolloProvider } from 'react-apollo';
@@ -25,7 +25,9 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    let parkDetailsMock = {
+    let parkMock = {
+      parkCode: null,
+      fullName: null,
       name: null,
       description: null,
       designation: null,
@@ -37,22 +39,26 @@ class App extends Component {
     }
 
     this.state = {
-      parkDetails: parkDetailsMock
+      parkDetails: parkMock,
+      bookmarks: new Map
     };
   }
 
   handleParkClick (park) {
     this.setState({
-      parkDetails: {
-        name: park.fullName,
-        description: park.description,
-        designation: park.designation,
-        url: park.url,
-        directionsUrl: park.directionsUrl,
-        weatherInfo: park.weatherInfo,
-        images: park.images,
-        coordinates: park.coordinates
-      }
+      parkDetails: park
+    });
+  }
+
+  // Bookmark the park shown in the detail section.
+  handleBookmark () {
+    let newBookmarks = this.state.bookmarks;
+
+    // Add the current detailed park as a bookmarked park.
+    newBookmarks.set(this.state.parkDetails.parkCode, this.state.parkDetails);
+
+    this.setState({
+      bookmarks: newBookmarks
     });
   }
 
@@ -72,13 +78,18 @@ class App extends Component {
             weatherInfo = {this.state.parkDetails.weatherInfo}
             images = {this.state.parkDetails.images}
             coordinates = {this.state.parkDetails.coordinates}
+            onBookmark = {() => this.handleBookmark()}
           />
           <ParkFinder
             onParkClick={(park) => this.handleParkClick(park)}
           />
-          <BookmarkList
-            onParkClick={(park) => this.handleParkClick(park)}
-          />
+          <div className="bookmark-list">
+            <div className="title">Bookmarks</div>
+            <ParkList
+              parks={Array.from(this.state.bookmarks.values())}
+              onParkClick={(park) => this.handleParkClick(park)}
+            />
+          </div>
         </div>
       </ApolloProvider>
     );

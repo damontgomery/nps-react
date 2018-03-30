@@ -4,16 +4,8 @@ import './ParkList.css';
 import ParkCard from './ParkCard';
 
 class ParkList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      parks: props.parks,
-      stateFilter: null
-    };
-  }
-
   render() {
-    let ParkCards = this.state.parks.map((park) => {
+    let ParkCards = this.props.parks.map((park) => {
       return (
         <ParkCard key={park.parkCode}
           fullName = {park.fullName}
@@ -31,7 +23,7 @@ class ParkList extends Component {
     });
 
     return (
-      <div className="park-cards">
+      <div className="park-list">
         {ParkCards}
       </div>
     );
@@ -40,8 +32,7 @@ class ParkList extends Component {
 
 /* Example usage:
 <ParkList
-  parks = graphqlParksData
-  stateFilter = "PA"
+  parks = parks // array of park objects
 />
 */
 

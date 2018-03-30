@@ -21,6 +21,10 @@ class ParkDetails extends Component {
         <div className="description">{this.props.description}</div>
         <a href={this.props.url} className="more-information">More information</a>
         <a href={this.props.directionsUrl} className="directions">Directions</a>
+        <button
+          className="bookmark"
+          onClick={(event) => this.props.onBookmark()}
+        >Bookmark</button>
       </div>
     );
   }

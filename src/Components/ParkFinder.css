@@ -1,8 +1,14 @@
+.park-finder > .title {
+  font-size: 1.62rem;
+  grid-area: title;
+}
+
 .park-finder {
   display: grid;
   grid-gap: 1.62rem;
   
   grid-template:
+    "title" auto
     "filters" auto
     "park-list" auto
     / auto;

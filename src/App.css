@@ -14,6 +14,17 @@
   color: #444;
 }
 
+@media (max-width:640px) {
+  .app {
+    grid-template:
+      "head" auto
+      "details" auto
+      "bookmarks" auto
+      "park-list" auto;
+    ;
+  }
+}
+
 .app > .header {
   grid-area: head;
 }
@@ -28,4 +39,16 @@
 
 .app > .bookmark-list {
   grid-area: bookmarks;
+}
+
+.bookmark-list > .title {
+  font-size: 1.62rem;
+}
+
+.bookmark-list > .park-list {
+  display:block;
+}
+
+.bookmark-list > .park-list > .park-card {
+  margin: 1.62rem 0;
 }
