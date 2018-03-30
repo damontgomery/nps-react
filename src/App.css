@@ -4,14 +4,24 @@
   grid-gap: 1.62rem;
   
   grid-template:
-    "head head" auto
-    "details details" auto
-    "park-list bookmarks" auto
-    / 1fr 1fr;
+    "head head head" auto
+    "park-list bookmarks details" auto
+    / 1fr 1fr 1fr;
   ;
 
   background-color: #fff;
   color: #444;
+}
+
+@media (min-width: 641px) and (max-width:840px) {
+  .app {
+    grid-template:
+      "head head" auto
+      "bookmarks details" auto
+      "park-list details" auto
+      / 1fr 1fr;
+    ;
+  }
 }
 
 @media (max-width:640px) {

@@ -1,22 +1,44 @@
 .park-details {
-  display:block;
+  display: grid;
+  grid-gap: 1.62rem;
+  
+  grid-template:
+    "title" fit-content(0)
+    "content" auto
+    / auto;
+  ;
+}
+
+.park-details > .title {
+  grid-area: title;
+}
+
+.park-details > .content {
+  grid-area: content;
+}
+
+.park-details > .title {
+  font-size: 1.62rem;
+}
+
+.park-details > .content {
   padding: 1.62em;
   border: 1px solid gray;
   border-radius: 2px;
   line-height: 1.62;
 }
 
-.park-details .name {
+.park-details > .content > .name {
   display:block;
   font-size: 1.38rem;
 
 }
 
-.park-details .description {
+.park-details > .content > .description {
   display:block;
 }
 
-.park-details a {
+.park-details > .content > a {
   display:block;
   text-decoration: none;
 }

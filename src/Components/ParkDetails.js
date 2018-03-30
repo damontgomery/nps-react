@@ -4,27 +4,35 @@ import './ParkDetails.css';
 class ParkDetails extends Component {
 
   render() {
-    if (this.props.name === null) {
-      return (
-        <div className="park-details">
-          <p>Click on a park to see detailed information.</p>
+    let content = (
+      <div className="content">
+        <p>Click on a park to see detailed information.</p>
+      </div>
+    );
+
+    if (this.props.name !== null) {
+      // The title, for example of Hawaii parks, contain HTML encoded characters
+      // which do not display without setting the inner HTML.
+      // It would probably be safer to build a function to replace select HTML
+      // encoded characters with unicode.
+      content = (
+        <div className="content">
+          <div className="name" dangerouslySetInnerHTML={{__html: this.props.name}}></div>
+          <div className="description">{this.props.description}</div>
+          <a href={this.props.url} className="more-information">More information</a>
+          <a href={this.props.directionsUrl} className="directions">Directions</a>
+          <button
+            className="bookmark"
+            onClick={(event) => this.props.onBookmark()}
+          >Bookmark</button>
         </div>
       );
     }
-    // The title, for example of Hawaii parks, contain HTML encoded characters
-    // which do not display without setting the inner HTML.
-    // It would probably be safer to build a function to replace select HTML
-    // encoded characters with unicode.
+    
     return (
       <div className="park-details">
-        <div className="name" dangerouslySetInnerHTML={{__html: this.props.name}}></div>
-        <div className="description">{this.props.description}</div>
-        <a href={this.props.url} className="more-information">More information</a>
-        <a href={this.props.directionsUrl} className="directions">Directions</a>
-        <button
-          className="bookmark"
-          onClick={(event) => this.props.onBookmark()}
-        >Bookmark</button>
+        <div className="title">Park Details</div>
+        {content}
       </div>
     );
   }
