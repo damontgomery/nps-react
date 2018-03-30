@@ -25,6 +25,7 @@ class ParkList extends Component {
           weatherInfo = {park.weatherInfo}
           images = {park.images}
           coordinates = {park.coordinates}
+          onClick={(event) => this.props.onParkClick(park)}
         />
       );
     });

@@ -1,11 +1,31 @@
-.App {
+.app {
   display: grid;
   margin: 1.62em;
   grid-gap: 1.62rem;
-  grid-template-columns:
-    [col1] auto
+  
+  grid-template:
+    "head head" auto
+    "details details" auto
+    "park-list bookmarks" auto
+    / 1fr 1fr;
   ;
-  grid-template-rows: [header] auto [content] auto [footer] auto;
+
   background-color: #fff;
   color: #444;
+}
+
+.app > .header {
+  grid-area: head;
+}
+
+.app > .park-details {
+  grid-area: details;
+}
+
+.app > .park-list {
+  grid-area: park-list;
+}
+
+.app > .bookmark-list {
+  grid-area: bookmarks;
 }

@@ -77,11 +77,15 @@ class StateFilter extends Component {
     let options = Array.from(states, ([stateCode, stateName]) => {return (<option key={stateCode} value={stateCode}>{stateName}</option>);});
 
     return (
-      <select name="state-filter" defaultValue={this.state.state} onChange={(event) => {
-        let selectedState = event.target.value;
-        this.setState({state: selectedState});
-        return this.props.onChange(selectedState);
-      }}>
+      <select
+        name="state-filter"
+        defaultValue={this.state.state}
+        onChange={(event) => {
+          let selectedState = event.target.value;
+          this.setState({state: selectedState});
+          return this.props.onChange(selectedState);
+        }}
+      >
         {options}
       </select>
     );

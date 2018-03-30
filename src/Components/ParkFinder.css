@@ -1,0 +1,18 @@
+.park-finder {
+  display: grid;
+  grid-gap: 1.62rem;
+  
+  grid-template:
+    "filters" auto
+    "park-list" auto
+    / auto;
+  ;
+}
+
+.park-finder > .state-filter {
+  grid-area: filters;
+}
+
+.park-finder > .park-list {
+  grid-area: park-list;
+}
