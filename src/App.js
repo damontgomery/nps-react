@@ -15,8 +15,11 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 // import gql from 'graphql-tag';
 // import { graphql } from 'react-apollo';
 
+// Allow environment variables to set the GraphQL server URI.
+const npsGraphQLURI = process.env.REACT_APP_NPS_GRAPHQL_URI || 'http://localhost:4000/graphql';
+
 const client = new ApolloClient({
-  link: new HttpLink({ uri: 'http://localhost:4000/graphql' }),
+  link: new HttpLink({ uri: npsGraphQLURI }),
   cache: new InMemoryCache()
 });
 
