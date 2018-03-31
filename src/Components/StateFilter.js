@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './StateFilter.css';
 
 const states = new Map([
   ['AL', 'Alabama'],
