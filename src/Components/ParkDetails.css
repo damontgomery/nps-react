@@ -17,6 +17,10 @@
   grid-area: content;
 }
 
+.park-details > .content > img {
+  max-width: 100%;
+}
+
 .park-details > .title {
   font-size: 1.62rem;
 }

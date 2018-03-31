@@ -38,6 +38,7 @@ class ParkFinder extends Component {
           weatherInfo
           images {
             url
+            altText
           }
           coordinates {
             lat
