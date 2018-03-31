@@ -16,7 +16,7 @@ class ParkDetails extends Component {
       // The original images are massive, ~5 mb to 10mb each. These parameters on the images will serve cropped images.
       let cropUrlParameters = "?width=800&height=450&mode=crop&quality=90";
 
-      if (this.props.images !== null){
+      if (this.props.images.length > 0){
         image = (
           <img src={this.props.images[0].url + cropUrlParameters} alt={this.props.images[0].altText}/>
         );
@@ -43,7 +43,6 @@ class ParkDetails extends Component {
     
     return (
       <div className="park-details">
-        <div className="title">Park Details</div>
         {content}
       </div>
     );

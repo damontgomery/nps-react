@@ -1,4 +1,8 @@
 .park-list {
-  display: grid;
-  grid-gap: 1rem;
+  max-height: 100%;
+  overflow: scroll;
+}
+
+.park-list > .park-card {
+  margin-bottom: 1rem;
 }

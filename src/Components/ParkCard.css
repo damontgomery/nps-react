@@ -1,9 +1,14 @@
 .park-card {
   display:block;
   padding: 0.62em 1.38em;
-  border: 1px solid gray;
-  border-radius: 2px;
   line-height: 1.62;
+  font-size: 0.8rem;
+  color: white;
+  background-color: #747263;
+}
+
+.bookmark-list .park-card {
+  background-color: #77943d;
 }
 
 .park-card .name {

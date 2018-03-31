@@ -1,12 +1,12 @@
 .app {
   display: grid;
-  margin: 1.62em;
   grid-gap: 1.62rem;
   
   grid-template:
-    "head head head" auto
-    "park-list bookmarks details" auto
-    / 1fr 1fr 1fr;
+    "head head head head head" fit-content(0)
+    "body-left park-finder-title bookmark-list-title park-details-title body-right" fit-content(0)
+    "body-left park-finder bookmark-list park-details body-right" 30rem
+    / 1px 1fr 1fr 1fr 1px;
   ;
 
   background-color: #fff;
@@ -16,10 +16,12 @@
 @media (min-width: 641px) and (max-width:840px) {
   .app {
     grid-template:
-      "head head" auto
-      "bookmarks details" auto
-      "park-list details" auto
-      / 1fr 1fr;
+      "head head head head" auto
+      "body-left bookmark-list-title park-details-title body-right" fit-content(0)
+      "body-left bookmark-list park-details body-right" auto
+      "body-left park-finder-title park-finder-title body-right" auto
+      "body-left park-finder park-finder body-right" auto
+      / 1.62rem 1fr 2fr 1.62rem;
     ;
   }
 }
@@ -27,26 +29,53 @@
 @media (max-width:640px) {
   .app {
     grid-template:
-      "head" auto
-      "details" auto
-      "bookmarks" auto
-      "park-list" auto;
+      "head head head" auto
+      "body-left park-details-title body-right" fit-content(0)
+      "body-left park-details body-right" auto
+      "body-left bookmark-list-title body-right" fit-content(0)
+      "body-left bookmark-list body-right" auto
+      "body-left park-finder-title body-right" fit-content(0)
+      "body-left park-finder body-right" auto
+      / 1.62rem 1fr 1.62rem
     ;
   }
 }
 
 .app > .header {
+  padding: 0 1.62rem;
   grid-area: head;
+  color: white;
+  background-color: black;
 }
 
 .app > .park-details {
-  grid-area: details;
+  grid-area: park-details;
 }
 
-.app > .park-list {
-  grid-area: park-list;
+.app > .park-finder {
+  grid-area: park-finder;
 }
 
 .app > .bookmark-list {
-  grid-area: bookmarks;
+  grid-area: bookmark-list;
+  overflow: hidden;
+}
+
+.park-finder--title,
+.bookmark-list--title,
+.park-details--title {
+  font-size: 1.62rem;
+  color: #444;
+}
+
+.park-finder--title {
+  grid-area: park-finder-title;
+}
+
+.bookmark-list--title {
+  grid-area: bookmark-list-title;
+}
+
+.park-details--title {
+  grid-area: park-details-title;
 }

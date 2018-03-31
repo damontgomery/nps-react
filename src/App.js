@@ -7,9 +7,6 @@ import ParkFinder from './Components/ParkFinder';
 import ParkDetails from './Components/ParkDetails';
 import ParkList from './Components/ParkList';
 
-// Import BookmarkList since it is displayed slightly different than a park list.
-import './Components/BookmarkList.css';
-
 // GraphQL Client
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
@@ -72,6 +69,7 @@ class App extends Component {
           <header className="header">
             <h1 className="title">National Park Service API React App</h1>
           </header>
+          <div className="park-details--title">Park Details</div>
           <ParkDetails
             name = {this.state.parkDetails.name}
             description = {this.state.parkDetails.description}
@@ -83,11 +81,12 @@ class App extends Component {
             coordinates = {this.state.parkDetails.coordinates}
             onBookmark = {() => this.handleBookmark()}
           />
+          <div className="park-finder--title">Park Finder</div>
           <ParkFinder
             onParkClick={(park) => this.handleParkClick(park)}
           />
+          <div className="bookmark-list--title">Bookmarks</div>
           <div className="bookmark-list">
-            <div className="title">Bookmarks</div>
             <ParkList
               parks={Array.from(this.state.bookmarks.values())}
               onParkClick={(park) => this.handleParkClick(park)}

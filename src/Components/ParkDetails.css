@@ -1,34 +1,8 @@
-.park-details {
-  display: grid;
-  grid-gap: 1.62rem;
-  
-  grid-template:
-    "title" fit-content(0)
-    "content" auto
-    / auto;
-  ;
-}
-
-.park-details > .title {
-  grid-area: title;
-}
-
-.park-details > .content {
-  grid-area: content;
-}
-
 .park-details > .content > img {
   max-width: 100%;
 }
 
-.park-details > .title {
-  font-size: 1.62rem;
-}
-
 .park-details > .content {
-  padding: 1.62em;
-  border: 1px solid gray;
-  border-radius: 2px;
   line-height: 1.62;
 }
 
@@ -40,9 +14,21 @@
 
 .park-details > .content > .description {
   display:block;
+  font-size: 0.8rem;
 }
 
 .park-details > .content > a {
   display:block;
   text-decoration: none;
+  color: #005999; 
+}
+
+.park-details button {
+  background-color: #005999;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  font-size: 1rem;
+  padding: 0.8em 1.38em;
+  margin: 1rem 0;
 }

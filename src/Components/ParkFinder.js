@@ -76,7 +76,6 @@ class ParkFinder extends Component {
 
     return (
       <div className="park-finder">
-        <div className="title">Park Finder</div>
         <StateFilter
           state={this.state.stateFilter}
           onChange={(state) => this.handleStateFilterChange(state)}
