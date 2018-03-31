@@ -43,7 +43,7 @@ class App extends Component {
 
     this.state = {
       parkDetails: parkMock,
-      bookmarks: new Map
+      bookmarks: new Map()
     };
   }
 
