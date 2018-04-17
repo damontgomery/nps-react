@@ -70,7 +70,7 @@ class App extends Component {
       <ApolloProvider client={client}>
         <div className="app">
           <header className="header">
-            <h1 className="title">National Park Service API React App</h1>
+            <h1 className="title">National Park Bookmarks</h1>
           </header>
           <div className="park-details--title">Park Details</div>
           <ParkDetails
