@@ -17,6 +17,7 @@
   "main": "public/electron.js",
   "homepage": "./",
   "build": {
+    "productName": "National Park Bookmarks",
     "appId": "com.damontgomery.nps-electron",
     "files": [
       "build/**/*",
@@ -24,6 +25,9 @@
     ],
     "directories":{
       "buildResources": "assets"
+    },
+    "mac" : {
+      "icon": "build/assets/icons/mac/icon.icns"
     }
   },
   "scripts": {

@@ -13,7 +13,11 @@ let mainWindow;
 
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({width: 1024, height: 768});
+    mainWindow = new BrowserWindow({
+        width: 1024,
+        height: 768,
+        icon: path.join(__dirname, 'assets/icons/png/64x64.png')
+    });
 
     const startUrl = process.env.ELECTRON_START_URL || url.format({
       pathname: path.join(__dirname, '/../build/index.html'),
